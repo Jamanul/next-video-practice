@@ -56,6 +56,14 @@ callbacks: {
     }
     return session
   }
-}
-
+},
+pages:{
+    signIn : "/login",
+    error: "/login"
+},
+session:{
+    strategy:"jwt",
+    maxAge:24*60*60*30
+},
+secret: process.env.NEXTAUTH_SECRET,
 }
