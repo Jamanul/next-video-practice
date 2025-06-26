@@ -1,8 +1,11 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const session = useSession()
   return (
     <nav className="bg-gray-900 text-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
@@ -10,6 +13,11 @@ export default function Navbar() {
           Home
         </Link>
         <ul className="flex space-x-6">
+          <li>
+            {
+              session?.data?.user.email
+            }
+          </li>
           <li>
             <Link href="/video" className="hover:underline">
               Video

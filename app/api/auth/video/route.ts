@@ -53,9 +53,10 @@ import { NextRequest, NextResponse } from "next/server";
       const newVideo = await Video.create(videoData)
       return NextResponse.json(newVideo);
     } catch (error) {
-          return NextResponse.json({
-            error: "no video found",
-            status : 500 
-          });
-    }
+  console.error("❌ Error creating video:", error);
+  return NextResponse.json({
+    error: error instanceof Error ? error.message : "Unknown error",
+    status: 500
+  });
+}
  }
