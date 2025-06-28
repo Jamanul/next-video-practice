@@ -24,6 +24,11 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
+            <Link href="/upload" className="hover:underline">
+              Upload
+            </Link>
+          </li>
+          <li>
             <Link href="/register" className="hover:underline">
               Registration
             </Link>
